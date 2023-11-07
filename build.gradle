@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+    id "au.com.dius.pact" version "4.3.10"
+
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //consumer dependencies
+    implementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    implementation 'au.com.dius.pact.consumer:junit5:4.6.3'
+    implementation 'org.apache.groovy:groovy-json:4.0.15'
+    implementation 'org.hamcrest:hamcrest:2.2'
+
+    //provider dependencies
+    implementation 'au.com.dius.pact.provider:junit5:4.6.3'
+    implementation 'org.wiremock:wiremock:3.2.0'
+    implementation 'ru.lanwen.wiremock:wiremock-junit5:1.3.1'
+    implementation 'org.apache.httpcomponents.core5:httpcore5:5.2.3'
+
+}
+
+//./gradlew pactPublish --> command to publish pact file to pact broker.
+pact {
+    publish {
+        pactDirectory = file('build/pacts/samples')
+        pactBrokerUrl = 'http://localhost:9292'
+        consumerVersion = '1.0.2'
+    }
+
+}
+test{
+    useJUnitPlatform()
+}
