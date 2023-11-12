@@ -1,0 +1,91 @@
+{
+  "consumer": {
+    "name": "ConsumerTest"
+  },
+  "interactions": [
+    {
+      "description": "get user of Prudhvi",
+      "providerStates": [
+        {
+          "name": "user Prudhvi"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/user/1"
+      },
+      "response": {
+        "body": [
+          {
+            "email": "prudhvi@test.com",
+            "id": 1,
+            "userName": "Prudhvi"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json; charset=UTF-8"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type",
+                  "max": 5
+                }
+              ]
+            },
+            "$[*].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[*].userName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {
+            "Content-Type": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "application/json(;\\s?charset=[\\w\\-]+)?"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-jvm": {
+      "version": "4.6.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "ProviderTest"
+  }
+}

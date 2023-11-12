@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="pact.ProviderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-11-11T17:25:22" hostname="CGSCLX074113424" time="2.049">
+  <properties/>
+  <testcase name="Pact between ConsumerTest (1.0.2) and ProviderTest - get user of Prudhvi" classname="pact.ProviderTest" time="2.049"/>
+  <system-out><![CDATA[Pact verification started...
+
+Verifying a pact between ConsumerTest (1.0.2) and ProviderTest
+
+  Notices:
+    1) The pact at http://localhost:9292/pacts/provider/ProviderTest/consumer/ConsumerTest/pact-version/e3bf027bc0ef0e7152653d62294c2f85b0cc3990 is being verified because the pact content belongs to the consumer version matching the following criterion:
+    * latest version of ConsumerTest that has a pact with ProviderTest (1.0.2)
+
+  [from Pact Broker http://localhost:9292/pacts/provider/ProviderTest/consumer/ConsumerTest/pact-version/e3bf027bc0ef0e7152653d62294c2f85b0cc3990/metadata/c1tdW2xdPXRydWUmc1tdW2N2XT0xMQ]
+  Given user Prudhvi
+  get user of Prudhvi
+    returns a response which
+      has status code 200 (OK)
+      has a matching body (OK)
+]]></system-out>
+  <system-err><![CDATA[SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+]]></system-err>
+</testsuite>
